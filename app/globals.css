@@ -128,7 +128,7 @@ a.cta:hover {
   font-size: 30rem;
   letter-spacing: -1.1rem;
   margin: 0 4rem 0 0;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 1s ease-in-out 0s;
 }
 

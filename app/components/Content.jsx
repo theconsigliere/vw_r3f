@@ -52,7 +52,7 @@ export default function Content() {
         <div className="trgs">
           <div className="trgs__holder holder">
             <>
-              <button class="trgs__trg prev">
+              <button className="trgs__trg prev">
                 <Image
                   src="/assets/up-arrow.svg"
                   alt="Victor Work Logo"
@@ -63,7 +63,7 @@ export default function Content() {
                 />
               </button>
 
-              <button class="trgs__trg next">
+              <button className="trgs__trg next">
                 <Image
                   src="/assets/down-arrow.svg"
                   alt="Victor Work Logo"

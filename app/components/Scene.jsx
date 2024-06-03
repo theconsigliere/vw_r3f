@@ -1,22 +1,23 @@
 "use client"
 import { Canvas } from "@react-three/fiber"
-import { Model } from "./Model"
+import { Shape1 } from "./Shape1"
 import { Perf } from "r3f-perf"
 import { Environment, OrbitControls } from "@react-three/drei"
 import { useControls } from "leva"
 
 export default function Scene() {
-  const modelProps = useControls("Model Props", {
-    rotation: { value: 1, min: 0.0, max: 10 },
+  const lightProps = useControls("Light Props", {
+    position: { value: [-3, -2, 0.8], step: 0.1 },
+    intensity: { value: 10, step: 0.1 },
   })
 
   return (
-    <Canvas dpr={[1, 2]} style={{ backgroundColor: "#141414" }}>
+    <Canvas dpr={[1, 2]} style={{ backgroundColor: "transparent" }}>
       <Perf position={"bottom-left"} />
-      {/* <directionalLight position={[0, 3, -2]} intensity={3} /> */}
+      <directionalLight {...lightProps} />
       {/* <Environment preset="night" /> */}
       <OrbitControls makeDefault />
-      <Model {...modelProps} />
+      <Shape1 />
     </Canvas>
   )
 }
