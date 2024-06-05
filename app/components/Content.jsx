@@ -3,25 +3,11 @@ import Image from "next/image"
 import Texts from "./Texts"
 import Marquees from "./Marquees"
 
-export default function Content() {
-  const slides = [
-    {
-      title: "E-commerce",
-      desc: "An e-commerce website is an online platform for buying and selling products or services, facilitating transactions over the internet.",
-    },
-    {
-      title: "Storytelling",
-      desc: " storytelling website is an online platform that hosts and shares diverse narratives, engaging users with captivating stories in various forms.",
-    },
-    {
-      title: "Showcase",
-      desc: "A showcase website is an online space for displaying and highlighting creative work, portfolios, or products to present one's skills or offerings.",
-    },
-    {
-      title: "Corporative",
-      desc: "A corporate website serves as a digital hub for a company, providing information about its business, services, products, and brand identity.",
-    },
-  ]
+export default function Content(props) {
+  // get slides state
+
+  // get slide and setSlide from props
+  const { slide, setSlide, slides } = props
 
   return (
     <div className="content">
@@ -52,7 +38,10 @@ export default function Content() {
         <div className="trgs">
           <div className="trgs__holder holder">
             <>
-              <button className="trgs__trg prev">
+              <button
+                className="trgs__trg prev"
+                onClick={() => setSlide((slide + 1) % slides.length)}
+              >
                 <Image
                   src="/assets/up-arrow.svg"
                   alt="Victor Work Logo"
@@ -63,7 +52,13 @@ export default function Content() {
                 />
               </button>
 
-              <button className="trgs__trg next">
+              <button
+                className="trgs__trg next"
+                // going down
+                onClick={() =>
+                  setSlide((slide + 1 + slides.length) % slides.length)
+                }
+              >
                 <Image
                   src="/assets/down-arrow.svg"
                   alt="Victor Work Logo"
